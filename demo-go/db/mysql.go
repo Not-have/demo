@@ -2,6 +2,7 @@ package db
 
 import (
 	"fmt"
+
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
@@ -21,6 +22,7 @@ func init() {
 	}
 
 	sqlDB, err := DB.DB()
+
 	if err != nil {
 		panic("获取底层数据库连接失败")
 	}
