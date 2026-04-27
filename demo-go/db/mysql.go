@@ -5,12 +5,12 @@ import (
 	"gorm.io/gorm"
 )
 
+var DB *gorm.DB
+
 func init() {
-	// 这里可以放置数据库连接的初始化代码，例如连接 MySQL 数据库。
-
-	dsn := "user:pass@tcp(127.0.0.1:3306)/demo-01?charset=utf8mb4&parseTime=True&loc=Local"
-
-	_, err := gorm.Open(sqlite.Open(dsn), &gorm.Config{})
+	// 当前项目使用 SQLite，本地数据库文件为 demo-01.db。
+	var err error
+	DB, err = gorm.Open(sqlite.Open("demo-01.db"), &gorm.Config{})
 	if err != nil {
 		panic("连接数据库失败")
 	}

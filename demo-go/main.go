@@ -1,6 +1,7 @@
 package main
 
 import (
+	service "demoGo/service/list"
 	utils "demoGo/utils/aes"
 	"fmt"
 )
@@ -10,4 +11,8 @@ func main() {
 
 	str := utils.AESDecrypt("MFvciXC6H8SAjWcp4/c9iUHlIQvOwUtGnFUztX1TzpexfmOIwpBjjasaFV+lM/tV")
 	fmt.Println(str)
+
+	list := service.GetUserList()
+
+	fmt.Println(list)
 }
