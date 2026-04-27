@@ -9,7 +9,7 @@ import (
 func GetUserList() []models.User {
 	var list []models.User
 
-	result := db.DB.Where("age LIKE?", "%22%").Find(&list)
+	result := db.DB.Find(&list)
 
 	if result.Error != nil {
 		fmt.Println("查询数据失败:", result.Error)
