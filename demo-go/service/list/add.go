@@ -8,11 +8,11 @@ import (
 
 func GetUserList() []models.User {
 	var list []models.User
-	err := db.DB.Find(&list).Error
 
-	if err != nil {
-		fmt.Println("Error fetching user list:", err)
-		return nil
+	result := db.DB.Where("age LIKE?", "%22%").Find(&list)
+
+	if result.Error != nil {
+		fmt.Println("查询数据失败:", result.Error)
 	}
 
 	return list
