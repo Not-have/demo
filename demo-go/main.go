@@ -20,6 +20,4 @@ func main() {
 	}
 
 	fmt.Println(string(jsonBytes))
-
-	service.AddUser("小明", 11, "18149302282")
 }
