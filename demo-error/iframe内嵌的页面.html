@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iframe内嵌的页面</title>
+  <style>
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <div>iframe内嵌的页面</div>
+  <script>
+    // 此页面被放在没有 allow-same-origin 权限的 sandbox iframe 中，
+    // 读取 localStorage 属性时会抛出未捕获的 DOMException/SecurityError。
+    console.log(window.localStorage);
+    window.localStorage.setItem('abc', '123');
+  </script>
+</body>
+</html>
